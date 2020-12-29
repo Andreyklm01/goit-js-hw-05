@@ -17,13 +17,14 @@ class Storage {
     return this.items;
   }
   addItem(item) {
-    return this.items.push(item);
+    this.items.push(item);
   }
   removeItem(item) {
     const itemToRemove = this.items.indexOf(item);
 
-    if (itemToRemove === -1) return;
-    return this.items.splice(itemToRemove, 1);
+    if (itemToRemove !== -1) {
+      this.items.splice(itemToRemove, 1);
+    }
   }
 }
 

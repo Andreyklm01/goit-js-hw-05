@@ -11,8 +11,6 @@
 class StringBuilder {
   constructor(value) {
     this._value = value;
-    this.arr = [];
-    this.arr.push(value);
   }
 
   get value() {
@@ -20,23 +18,14 @@ class StringBuilder {
   }
 
   append(str) {
-    this.arr.push(str);
-
-    this._value = this.arr.join('');
-    return this._value;
+    this._value += str;
   }
 
   prepend(str) {
-    this.arr.unshift(str);
-
-    this._value = this.arr.join('');
-    return this._value;
+    this._value = str + this._value;
   }
   pad(str) {
-    this.arr.unshift(str) && this.arr.push(str);
-
-    this._value = this.arr.join('');
-    return this._value;
+    this.append(str) + this.prepend(str);
   }
 }
 
